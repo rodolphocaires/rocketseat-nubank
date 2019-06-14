@@ -5,20 +5,12 @@ import { Animated } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 import Header from '~/components/Header';
-
-import {
-  Container,
-  Content,
-  Card,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  Title,
-  Description,
-  Annotation,
-} from './styles';
 import Tabs from '~/components/Tabs';
 import Menu from '~/components/Menu';
+
+import {
+  Container, Content, Card, CardHeader, CardContent, CardFooter, Title, Description, Annotation,
+} from './styles';
 
 export default function Main() {
   let offset = 0;
@@ -45,9 +37,8 @@ export default function Main() {
       if (translationY >= 100) {
         opened = true;
       } else {
-        translateY.setOffset(offset);
-        translateY.setValue(0);
-
+        translateY.setValue(offset);
+        translateY.setOffset(0);
         offset = 0;
       }
 
@@ -94,11 +85,12 @@ export default function Main() {
             </CardContent>
             <CardFooter>
               <Annotation>
-                Transferência de R$ 20,00 recebida de Diego Schell Fernandes hoje às 13:47
+                Transferência de R$ 20,00 recebida de Diego Schell Fernandes hoje às 06:00h
               </Annotation>
             </CardFooter>
           </Card>
         </PanGestureHandler>
+
       </Content>
 
       <Tabs translateY={translateY} />
